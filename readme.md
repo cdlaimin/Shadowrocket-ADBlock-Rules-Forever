@@ -2,7 +2,7 @@
 
 ### 试更新公告
 
-由于原作者 [h2y](https://github.com/h2y) 已停止维护 [Shadowrocket-ADBlock-Rules](https://github.com/h2y/Shadowrocket-ADBlock-Rules)，Shadowrocket 再无划分如此细致精美的规则。因此我决定用自己有限的能力和技术对该项目以个人的理解进行更新与维护。**所有规则都会在每天 北京时间 8:00 更新发布。**
+由于原作者 [h2y](https://github.com/h2y) 已停止维护 [Shadowrocket-ADBlock-Rules](https://github.com/h2y/Shadowrocket-ADBlock-Rules)，Shadowrocket 再无划分如此细致精美的规则。因此我决定用自己有限的能力和技术对该项目以个人的理解进行更新与维护。**所有规则都会在每天北京时间 8:00 更新发布。**
 
 ### 写在前面 —— 请保护好自己
 
@@ -20,20 +20,16 @@
 
 **本规则具有以下特点：**
 
-- 黑名单由最新版 [GFWList](https://github.com/gfwlist/gfwlist) 自动转换；加入 [Greatfire Analyzer](https://github.com/Loyalsoldier/cn-blocked-domain) 检测到的屏蔽域名；增加了白名单针对全球 top500 站点的连通情况定期自动生成。
-- 自动转换最新版本的 `EasyList`, `Eaylist China`, `Peter Lowe 广告和隐私跟踪域名`， `乘风规则` 为 SR 规则，全面去除广告且去除重复。
-- 包括自定义的广告过滤规则，针对 iOS 端的网页广告、App 广告和视频广告。
-- 提供多个规则文件供大家自由选择或者自由切换使用。
-- 专门针对 ShadowRocket 开发，可以保证与 SR 的兼容性。
-- 将 [Apple域名](https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf) 加入直连
-
-
-**我做了如下改动：**
-- 增加了 [Peter Lowe](https://pgl.yoyo.org/adservers/) 广告和隐私跟踪域名
-- 加入 [Greatfire Analyzer](https://github.com/Loyalsoldier/cn-blocked-domain) 检测到的屏蔽域名
-- 将 [Apple及其CDN域名](https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf) 加入直连
-- 由于世界排名 top 500 网站列表已无法通过无账户/免费方式取得，故原来的 top500 检测方法失效。我已根据旧的 top500 榜单重构了新的 top500 网站连接情况表。**同时，希望大家可以帮助 pull requests 一份最新的 top500 榜单: [格式](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/master/factory/resultant/top500_manual.list)**  
-- **所有发布的规则都会在 每天北京时间 8:00 更新发布**
+- 黑名单由最新版 [GFWList](https://github.com/gfwlist/gfwlist) 自动转换；
+- 加入 [Greatfire Analyzer](https://github.com/Loyalsoldier/cn-blocked-domain) 检测到的屏蔽域名；
+- 自动转换最新版本的 `EasyList`, `Eaylist China`, `Peter Lowe 广告和隐私跟踪域名`，`乘风规则` 为 SR 规则，全面去除广告且去除重复；
+- 包括自定义的广告过滤规则，针对 iOS 端的网页广告、App 广告和视频广告；
+- 提供多个规则文件供大家自由选择或者自由切换使用；
+- 专门针对 ShadowRocket 开发，可以保证与 SR 的兼容性；
+- 将 [Apple及其CDN域名](https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf) 进行优化；
+- 方便的快捷指令与自动化联动，每天自动更新规则；
+- 由于世界排名 top 500 网站列表已无法通过无账户/免费方式取得，故原来的 top500 检测方法失效。我已根据旧的 top500 榜单重构了新的 top500 网站连接情况表。**同时，希望大家可以帮助 pull requests 一份最新的 top500 榜单: [格式](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/blob/master/factory/resultant/top500_manual.list)**
+- **所有发布的规则都会在每天北京时间 8:00 更新发布**
 
 
 ## 规则列表
@@ -52,16 +48,23 @@
 [全局代理 + 去广告](#代理去广告) |  全部 | /
 [回国规则 + 去广告](#回国规则--广告) | 中国网站 | 国外网站 
 [回国规则](#回国规则) |   |  
+[仅去广告规则](#仅去广告规则) |   |  
 
 - 以上所有规则，局域网内请求均直连。
 - 可以下载多个规则切换使用。
 
 ## 规则使用方法
 
-在 ShadowRocket 应用中，进入 [配置] 页面，点击扫描二维码的按钮添加规则。再激活添加的规则文件即可。
+方法一：用 Safari 或 ShadowRocket 扫描二维码即可。  
+方法二：在 ShadowRocket 应用中，进入 [配置] 页面，点击右上角加号，将规则文件地址粘贴到 url 处，点击“下载”即可。
 
 最好让 ShadowRocket 断开并重新连接一次，以确保新的规则文件生效。 
 
+## 如何自动更新
+步骤一：安装[捷径](https://www.icloud.com/shortcuts/20bd590bc99e4ef0a157d2fe6e8c273d)，并填写规则文件地址；  
+步骤二：打开“快捷指令”下方的“自动化”，轻击右上角加号，点击“创建个人自动化”，选择“特定时间”，设定时间为 8:05 或更晚的时间（规则生成需要一定时间），点击下一步，点击添加操作，选择 APP 栏，找到快捷指令，选择“打开快捷指令”，点击浅色“快捷指令”，选择“Shadowrocket 规则自动更新”，点击下一步，关闭运行前询问（可选），点击完成即可。
+
+如果出现无法正常跳转 Safari 对 google.cn 的请求的情况，请在每次更新后点击规则后方的ℹ️，点击 HTTPS 解密，将 HTTPS 解密关闭，返回，再开启，即可正常跳转。
 
 ## 一些推荐的网站
 
@@ -69,14 +72,19 @@
 
 这是一个很棒的 IP 查询网站，支持同时查询你的境内境外 IP，以及谷歌 IP。
 
-**[hzy的博客](https://hzy.pw)**
+**[hzy的博客](https://hzy.pw/)**
 
 我是一名大学生，沉迷技术无法自拔。这是我的个人博客，会分享一些有趣的东西和自己的观点，欢迎来逛逛~
 
-**[hfdem的博客](https://www.hfdem.net)**  
+**[DuckSoft的博客](https://www.ducksoft.site/)**
+
+INTP | Jack of all trades | I use Arch BTW
+
+**[hfdem的博客](https://www.hfdem.net/)**
+
 一位永远鼓励着我前进并给予我帮助的大佬的博客。
 
-**[我的博客](https://blog.ncbadboy.ml)**
+**[我的博客](https://blog.metaphorme.net/)**
 
 我是个自由的开发者，喜欢生命和阳光。
 
@@ -108,9 +116,13 @@
 
 > 请将 `podcasts.apple.com`、`bookkeeper.itunes.apple.com`、`play.itunes.apple.com`、`xp.apple.com` 加入代理，详见 [#214](https://github.com/DivineEngine/Profiles/issues/214)
 
+- **无法正常跳转 Safari 对 google.cn 的请求**
+
+> 轻击配置 -> 轻击本地文件中正在使用的规则文件后的ℹ️ -> HTTPS 解密 -> 将右上角开关启动 -> 安装证书 -> 允许 -> 打开系统设置 -> 已下载描述文件 -> 安装 -> 输入密码 -> 安装 -> 通用 -> 关于本机 -> 证书信任设置 -> 对刚刚安装的根证书完全信任 即可正常跳转。
+
 ## 问题反馈
 
-任何问题欢迎在 [Issues](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/issues) 中反馈，如果没有账号可以去 [我的网站](https://blog.ncbadboy.ml) 中留言。
+任何问题欢迎在 [Issues](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/issues) 中反馈。
 
 你的反馈会让此规则变得更加完美。
 
@@ -249,11 +261,29 @@
 
 ![二维码](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/figure/sr_backcn_ad.png)
 
-### 鸣谢：
+
+## 仅去广告规则
+
+仅包含去广告规则，不包含代理/直连规则。用于与其他规则联用。
+
+- 仅包含去广告规则，不包含代理/直连规则。无任何其他配置。
+
+规则地址：<https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf>
+
+![二维码](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/figure/sr_ad_only.png)
+
+
+## 鸣谢：
 感谢 [@h2y](https://github.com/h2y) 及所有给予 [Shadowrocket-ADBlock-Rules](https://github.com/h2y/Shadowrocket-ADBlock-Rules) 无私帮助的社区开发者们；  
 感谢 [@hfdem](https://github.com/hfdem) 给予我的帮助、肯定与支持！  
 感谢 [JetBrains](https://www.jetbrains.com) 提供的一系列好用的 IDE 和对本项目的支持。
 
+### 本项目引用：  
+[gfwlist](https://github.com/gfwlist/gfwlist)  
+[Greatfire Analyzer](https://github.com/Loyalsoldier/cn-blocked-domain)   
+[乘风广告过滤规则](https://github.com/xinggsf/Adblock-Plus-Rule)  
+[EasyList China](https://adblockplus.org/)  
+[Peter Lowe 广告和隐私跟踪域名](https://pgl.yoyo.org/)   
 
 ## Stargazers over time
 

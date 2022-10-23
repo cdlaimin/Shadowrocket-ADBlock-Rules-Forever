@@ -1,4 +1,4 @@
-name: CI
+name: Build Shadowrocket Rules
 
 on:
   schedule:
@@ -7,9 +7,11 @@ on:
   
   push:
     branches:
-    - master
+      - master
+    paths-ignore: 
+      - '**.md'
+      - 'LICENSE'
 
-  # 可手动触发
   workflow_dispatch:
   
 jobs:

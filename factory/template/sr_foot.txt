@@ -1,6 +1,10 @@
 
 [URL Rewrite]
-^http://(www.)?google.cn https://www.google.com 302
+^https?://(www.)?(g|google)\.cn https://www.google.com 302
+
+
+[MITM]
+hostname = *.google.cn,*.googlevideo.com
 
 # By Moshel @ https://hzy.pw/
-# By Johnshall @ https://blog.ncbadboy.ml
+# By Johnshall @ https://blog.metaphorme.net/
